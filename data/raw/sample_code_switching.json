@@ -1,0 +1,274 @@
+[
+  {
+    "sentence_id": "001",
+    "text": "Main university mein admission apply kar raha hoon.",
+    "annotations": [
+      {
+        "token": "Main",
+        "label": "URDU_ROMAN"
+      },
+      {
+        "token": "university",
+        "label": "ENGLISH"
+      },
+      {
+        "token": "mein",
+        "label": "URDU_ROMAN"
+      },
+      {
+        "token": "admission",
+        "label": "ENGLISH"
+      },
+      {
+        "token": "apply",
+        "label": "ENGLISH"
+      },
+      {
+        "token": "kar",
+        "label": "URDU_ROMAN"
+      },
+      {
+        "token": "raha",
+        "label": "URDU_ROMAN"
+      },
+      {
+        "token": "hoon",
+        "label": "URDU_ROMAN"
+      },
+      {
+        "token": ".",
+        "label": "OTHER"
+      }
+    ]
+  },
+  {
+    "sentence_id": "002",
+    "text": "Yeh project deadline kal hai.",
+    "annotations": [
+      {
+        "token": "Yeh",
+        "label": "URDU_ROMAN"
+      },
+      {
+        "token": "project",
+        "label": "ENGLISH"
+      },
+      {
+        "token": "deadline",
+        "label": "ENGLISH"
+      },
+      {
+        "token": "kal",
+        "label": "URDU_ROMAN"
+      },
+      {
+        "token": "hai",
+        "label": "URDU_ROMAN"
+      },
+      {
+        "token": ".",
+        "label": "OTHER"
+      }
+    ]
+  },
+  {
+    "sentence_id": "003",
+    "text": "Please send me the report.",
+    "annotations": [
+      {
+        "token": "Please",
+        "label": "ENGLISH"
+      },
+      {
+        "token": "send",
+        "label": "ENGLISH"
+      },
+      {
+        "token": "me",
+        "label": "AMBIGUOUS"
+      },
+      {
+        "token": "the",
+        "label": "ENGLISH"
+      },
+      {
+        "token": "report",
+        "label": "ENGLISH"
+      },
+      {
+        "token": ".",
+        "label": "OTHER"
+      }
+    ]
+  },
+  {
+    "sentence_id": "004",
+    "text": "Aaj mausam bohot acha hai.",
+    "annotations": [
+      {
+        "token": "Aaj",
+        "label": "URDU_ROMAN"
+      },
+      {
+        "token": "mausam",
+        "label": "URDU_ROMAN"
+      },
+      {
+        "token": "bohot",
+        "label": "URDU_ROMAN"
+      },
+      {
+        "token": "acha",
+        "label": "URDU_ROMAN"
+      },
+      {
+        "token": "hai",
+        "label": "URDU_ROMAN"
+      },
+      {
+        "token": ".",
+        "label": "OTHER"
+      }
+    ]
+  },
+  {
+    "sentence_id": "005",
+    "text": "Teacher ne assignment submit karne ko kaha.",
+    "annotations": [
+      {
+        "token": "Teacher",
+        "label": "ENGLISH"
+      },
+      {
+        "token": "ne",
+        "label": "URDU_ROMAN"
+      },
+      {
+        "token": "assignment",
+        "label": "ENGLISH"
+      },
+      {
+        "token": "submit",
+        "label": "ENGLISH"
+      },
+      {
+        "token": "karne",
+        "label": "URDU_ROMAN"
+      },
+      {
+        "token": "ko",
+        "label": "URDU_ROMAN"
+      },
+      {
+        "token": "kaha",
+        "label": "URDU_ROMAN"
+      },
+      {
+        "token": ".",
+        "label": "OTHER"
+      }
+    ]
+  },
+  {
+    "sentence_id": "006",
+    "text": "I am learning natural language processing.",
+    "annotations": [
+      {
+        "token": "I",
+        "label": "ENGLISH"
+      },
+      {
+        "token": "am",
+        "label": "ENGLISH"
+      },
+      {
+        "token": "learning",
+        "label": "ENGLISH"
+      },
+      {
+        "token": "natural",
+        "label": "ENGLISH"
+      },
+      {
+        "token": "language",
+        "label": "ENGLISH"
+      },
+      {
+        "token": "processing",
+        "label": "ENGLISH"
+      },
+      {
+        "token": ".",
+        "label": "OTHER"
+      }
+    ]
+  },
+  {
+    "sentence_id": "007",
+    "text": "Mujhe laptop chahiye kyunki online class hai.",
+    "annotations": [
+      {
+        "token": "Mujhe",
+        "label": "URDU_ROMAN"
+      },
+      {
+        "token": "laptop",
+        "label": "ENGLISH"
+      },
+      {
+        "token": "chahiye",
+        "label": "URDU_ROMAN"
+      },
+      {
+        "token": "kyunki",
+        "label": "URDU_ROMAN"
+      },
+      {
+        "token": "online",
+        "label": "ENGLISH"
+      },
+      {
+        "token": "class",
+        "label": "ENGLISH"
+      },
+      {
+        "token": "hai",
+        "label": "URDU_ROMAN"
+      },
+      {
+        "token": ".",
+        "label": "OTHER"
+      }
+    ]
+  },
+  {
+    "sentence_id": "008",
+    "text": "Kal meeting cancel ho gayi.",
+    "annotations": [
+      {
+        "token": "Kal",
+        "label": "URDU_ROMAN"
+      },
+      {
+        "token": "meeting",
+        "label": "ENGLISH"
+      },
+      {
+        "token": "cancel",
+        "label": "ENGLISH"
+      },
+      {
+        "token": "ho",
+        "label": "URDU_ROMAN"
+      },
+      {
+        "token": "gayi",
+        "label": "URDU_ROMAN"
+      },
+      {
+        "token": ".",
+        "label": "OTHER"
+      }
+    ]
+  }
+]
