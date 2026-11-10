@@ -9,9 +9,16 @@ import streamlit as st
 from streamlit_lib.bootstrap import init_app
 from streamlit_lib.data_access import analyze_text, batch_analyze_texts
 from streamlit_lib.formatters import format_model_version
-from streamlit_lib.ui import inject_base_css, legend_html, metric_row, page_header, token_chips_html
+from streamlit_lib.ui import (
+    configure_page,
+    inject_base_css,
+    legend_html,
+    metric_row,
+    page_header,
+    token_chips_html,
+)
 
-st.set_page_config(page_title="Analyzer", layout="wide")
+configure_page("Analyzer")
 init_app()
 inject_base_css()
 

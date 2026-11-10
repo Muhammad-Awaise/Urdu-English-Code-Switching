@@ -16,9 +16,9 @@ from streamlit_lib.data_access import (
     upload_dataset_file,
     validate_dataset,
 )
-from streamlit_lib.ui import inject_base_css, metric_row, page_header, shimmer_block
+from streamlit_lib.ui import configure_page, inject_base_css, metric_row, page_header, shimmer_block
 
-st.set_page_config(page_title="Datasets", layout="wide")
+configure_page("Datasets")
 init_app()
 inject_base_css()
 

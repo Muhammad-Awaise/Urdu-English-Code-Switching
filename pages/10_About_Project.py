@@ -6,9 +6,16 @@ import streamlit as st
 from streamlit_lib.bootstrap import init_app
 from streamlit_lib.cache import cached_dashboard_overview
 from streamlit_lib.formatters import format_compact_count, format_metric
-from streamlit_lib.ui import inject_base_css, metric_row, page_header, shimmer_block, shimmer_metrics
+from streamlit_lib.ui import (
+    configure_page,
+    inject_base_css,
+    metric_row,
+    page_header,
+    shimmer_block,
+    shimmer_metrics,
+)
 
-st.set_page_config(page_title="About Project", layout="wide")
+configure_page("About Project")
 init_app()
 inject_base_css()
 

@@ -8,9 +8,9 @@ from streamlit_lib.cache import cached_compare_models
 from streamlit_lib.data_access import list_experiments, update_experiment_notes
 from streamlit_lib.formatters import format_datetime, format_metric, format_model_type
 from streamlit_lib.metrics_display import render_experiment_results
-from streamlit_lib.ui import inject_base_css, page_header, shimmer_block
+from streamlit_lib.ui import configure_page, inject_base_css, page_header, shimmer_block
 
-st.set_page_config(page_title="Experiments", layout="wide")
+configure_page("Experiments")
 init_app()
 inject_base_css()
 

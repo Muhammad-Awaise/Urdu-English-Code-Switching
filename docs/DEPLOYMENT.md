@@ -18,6 +18,16 @@ deployment is optional.
 4. Confirm Python version compatible with `requirements.txt` (3.11–3.14 recommended).
 5. Deploy and wait for the build log to finish.
 
+## App chrome (toolbar)
+
+`.streamlit/config.toml` sets `client.toolbarMode = "minimal"`, and
+`inject_base_css()` hides Share / star / edit / GitHub / Deploy / ⋮ via CSS
+(`data-testid` + attribute fallbacks) plus a thin top-right mask.
+
+**Limit:** chrome that Streamlit injects *outside* the app iframe (rare host
+shell) cannot be styled from app CSS. Everything inside the app frame should
+be covered after redeploy.
+
 ## Paths
 
 All paths resolve from the repository root via `backend/app/core/config.py`

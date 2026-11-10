@@ -18,9 +18,9 @@ from streamlit_lib.data_access import (
 )
 from streamlit_lib.formatters import format_datetime, format_model_type, format_model_version
 from streamlit_lib.metrics_display import render_experiment_results
-from streamlit_lib.ui import inject_base_css, metric_row, page_header, shimmer_metrics
+from streamlit_lib.ui import configure_page, inject_base_css, metric_row, page_header, shimmer_metrics
 
-st.set_page_config(page_title="Research Center", layout="wide")
+configure_page("Research Center")
 init_app()
 inject_base_css()
 

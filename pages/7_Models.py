@@ -7,9 +7,9 @@ from streamlit_lib.bootstrap import init_app
 from streamlit_lib.cache import cached_list_models, clear_data_caches
 from streamlit_lib.data_access import set_model_active
 from streamlit_lib.formatters import format_datetime, format_metric, format_model_type, format_model_version
-from streamlit_lib.ui import inject_base_css, metric_row, page_header, shimmer_block
+from streamlit_lib.ui import configure_page, inject_base_css, metric_row, page_header, shimmer_block
 
-st.set_page_config(page_title="Models", layout="wide")
+configure_page("Models")
 init_app()
 inject_base_css()
 

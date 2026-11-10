@@ -6,6 +6,7 @@ from streamlit_lib.bootstrap import init_app
 from streamlit_lib.cache import cached_count_records, cached_list_datasets, clear_data_caches
 from streamlit_lib.data_access import export_annotations, get_record_at, update_annotation
 from streamlit_lib.ui import (
+    configure_page,
     inject_base_css,
     legend_html,
     page_header,
@@ -13,7 +14,7 @@ from streamlit_lib.ui import (
     token_chips_html,
 )
 
-st.set_page_config(page_title="Annotation", layout="wide")
+configure_page("Annotation")
 init_app()
 inject_base_css()
 

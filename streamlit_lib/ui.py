@@ -10,6 +10,7 @@ import streamlit as st
 from streamlit_lib.formatters import format_compact_count
 
 __all__ = [
+    "configure_page",
     "page_header",
     "metric_row",
     "token_chips_html",
@@ -19,6 +20,28 @@ __all__ = [
     "shimmer_block",
     "with_loading",
 ]
+
+# Empty menu items so config.toml toolbarMode=minimal can hide the ⋮ control.
+_MENU_ITEMS = {"Get Help": None, "Report a bug": None, "About": None}
+
+
+def configure_page(
+    page_title: str,
+    *,
+    page_icon: str | None = None,
+    layout: str = "wide",
+    initial_sidebar_state: str = "expanded",
+) -> None:
+    """Shared set_page_config for multipage consistency (minimal toolbar)."""
+    kwargs: dict[str, Any] = {
+        "page_title": page_title,
+        "layout": layout,
+        "initial_sidebar_state": initial_sidebar_state,
+        "menu_items": _MENU_ITEMS,
+    }
+    if page_icon is not None:
+        kwargs["page_icon"] = page_icon
+    st.set_page_config(**kwargs)
 
 LABEL_COLORS = {
     "URDU_ROMAN": ("#1f9d55", "#e8f8ee"),
@@ -85,12 +108,78 @@ def legend_html() -> str:
 
 
 def inject_base_css() -> None:
+    """Inject shared styles + hide Streamlit / Community Cloud toolbar chrome.
+
+    Uses official-ish data-testid hooks where available, plus attribute fallbacks.
+    Keeps the left sidebar collapse control usable (does not blank the whole header).
+    Host chrome that lives *outside* the app iframe cannot always be removed.
+    """
     st.markdown(
         """
         <style>
           .block-container { padding-top: 1.4rem; max-width: 1200px; }
           div[data-testid="stMetricValue"] { font-variant-numeric: tabular-nums; }
           h1, h2, h3 { letter-spacing: -0.02em; }
+
+          /* --- Hide Cloud / app toolbar chrome (Share, star, edit, GitHub, ⋮, Deploy) --- */
+          #MainMenu,
+          footer,
+          div[data-testid="stDecoration"],
+          div[data-testid="stStatusWidget"],
+          div[data-testid="stToolbar"],
+          div[data-testid="stAppToolbar"],
+          .stDeployButton,
+          [data-testid="stAppDeployButton"],
+          [data-testid="stToolbarActionButtonShare"],
+          [data-testid="stToolbarActionButtonFavorite"],
+          [data-testid="stToolbarActionButtonStar"],
+          [data-testid="stToolbarActionButtonRename"],
+          [data-testid="stToolbarActionButtonEdit"],
+          [data-testid="stToolbarActionButtonGithub"],
+          [data-testid="stToolbarActionButtonGitHub"],
+          [data-testid^="stToolbarActionButton"] {
+            display: none !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+            height: 0 !important;
+            width: 0 !important;
+            min-width: 0 !important;
+            margin: 0 !important;
+            padding: 0 !important;
+            overflow: hidden !important;
+          }
+
+          /* Attribute / label fallbacks when testids differ by Streamlit version.
+             Avoid blanketing all header buttons — sidebar collapse lives in header too. */
+          header a[href*="github.com"],
+          header a[href*="share.streamlit"],
+          header [aria-label="Share"],
+          header [aria-label="Share this app"],
+          header [aria-label="Favorite"],
+          header [aria-label="Star"],
+          header [aria-label="Edit"],
+          header [aria-label="Rename"],
+          header [aria-label="GitHub"],
+          header [aria-label="Source on GitHub"],
+          header [title="Share"],
+          header [title="GitHub"] {
+            display: none !important;
+            visibility: hidden !important;
+            pointer-events: none !important;
+          }
+
+          /* Soft mask over top-right if any residual Cloud chips remain inside the app */
+          .cs-toolbar-mask {
+            position: fixed;
+            top: 0;
+            right: 0;
+            width: min(320px, 42vw);
+            height: 3.25rem;
+            z-index: 1000000;
+            background: #ffffff;
+            pointer-events: auto;
+          }
+
           @keyframes cs-shimmer {
             0% { background-position: -400px 0; }
             100% { background-position: 400px 0; }
@@ -113,6 +202,7 @@ def inject_base_css() -> None:
           .cs-shimmer-line.sm { width: 35%; }
           .cs-shimmer-line.md { width: 75%; }
         </style>
+        <div class="cs-toolbar-mask" aria-hidden="true"></div>
         """,
         unsafe_allow_html=True,
     )

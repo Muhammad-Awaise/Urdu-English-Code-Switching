@@ -16,14 +16,16 @@ import streamlit as st
 from streamlit_lib.bootstrap import init_app
 from streamlit_lib.cache import cached_dashboard_overview
 from streamlit_lib.formatters import format_metric
-from streamlit_lib.ui import inject_base_css, metric_row, page_header, shimmer_block, shimmer_metrics
-
-st.set_page_config(
-    page_title="Urdu-English Code-Switching Analyzer",
-    page_icon="🔬",
-    layout="wide",
-    initial_sidebar_state="expanded",
+from streamlit_lib.ui import (
+    configure_page,
+    inject_base_css,
+    metric_row,
+    page_header,
+    shimmer_block,
+    shimmer_metrics,
 )
+
+configure_page("Urdu-English Code-Switching Analyzer", page_icon="🔬")
 
 init_app()
 inject_base_css()

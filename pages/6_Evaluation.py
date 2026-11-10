@@ -7,7 +7,7 @@ from streamlit_lib.bootstrap import init_app
 from streamlit_lib.cache import cached_compare_models
 from streamlit_lib.data_access import model_evaluation
 from streamlit_lib.formatters import format_metric, format_model_type, format_model_version
-from streamlit_lib.ui import inject_base_css, metric_row, page_header, shimmer_block
+from streamlit_lib.ui import configure_page, inject_base_css, metric_row, page_header, shimmer_block
 
 
 def confusion_matrix_df(cm) -> pd.DataFrame | None:
@@ -60,7 +60,7 @@ def misclassified_df(items: list) -> pd.DataFrame:
     return pd.DataFrame(rows)
 
 
-st.set_page_config(page_title="Evaluation", layout="wide")
+configure_page("Evaluation")
 init_app()
 inject_base_css()
 

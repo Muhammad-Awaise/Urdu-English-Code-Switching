@@ -7,9 +7,9 @@ from streamlit_lib.bootstrap import init_app
 from streamlit_lib.cache import cached_list_datasets, clear_data_caches
 from streamlit_lib.data_access import cancel_training_job, list_training_jobs, start_training
 from streamlit_lib.formatters import format_datetime, format_metric, format_model_type
-from streamlit_lib.ui import inject_base_css, metric_row, page_header, shimmer_block
+from streamlit_lib.ui import configure_page, inject_base_css, metric_row, page_header, shimmer_block
 
-st.set_page_config(page_title="Training", layout="wide")
+configure_page("Training")
 init_app()
 inject_base_css()
 

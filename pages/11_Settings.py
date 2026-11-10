@@ -6,9 +6,9 @@ import streamlit as st
 
 from streamlit_lib.bootstrap import init_app
 from streamlit_lib.data_access import app_settings, save_runtime_settings
-from streamlit_lib.ui import inject_base_css, page_header
+from streamlit_lib.ui import configure_page, inject_base_css, page_header
 
-st.set_page_config(page_title="Settings", layout="wide")
+configure_page("Settings")
 init_app()
 inject_base_css()
 

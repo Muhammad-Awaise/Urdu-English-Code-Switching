@@ -6,7 +6,7 @@ import streamlit as st
 
 from streamlit_lib.bootstrap import init_app
 from streamlit_lib.data_access import preprocess_text
-from streamlit_lib.ui import inject_base_css, page_header
+from streamlit_lib.ui import configure_page, inject_base_css, page_header
 
 
 def render_preprocess_panel(title: str, payload: dict) -> None:
@@ -40,7 +40,7 @@ def render_preprocess_panel(title: str, payload: dict) -> None:
             st.caption("No tokens produced.")
 
 
-st.set_page_config(page_title="Preprocessing", layout="wide")
+configure_page("Preprocessing")
 init_app()
 inject_base_css()
 
