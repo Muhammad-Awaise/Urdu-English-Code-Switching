@@ -46,30 +46,32 @@ Free Streamlit apps can hibernate after ~12 hours without traffic.
 
 This repo includes:
 
-`.github/workflows/streamlit-keepalive.yml`
+`.github/workflows/streamlit-keepalive.yml`  
+`scripts/streamlit_keepalive.py`
 
-It pings the app every **8 hours (UTC)** so an already-awake app is less likely to sleep.
+Same pattern as the sibling **Bilingual-Sentiment-Analysis-Tool** project:
 
-### Setup after you have a live URL
+- Runs every **6 hours (UTC)** (`0 */6 * * *`)
+- Uses **Playwright/Chromium** (not curl) so page JS + WebSocket count as real traffic
+- Can click **“Yes, get this app back up!”** if the app is already asleep
+- Live URL: https://urdu-english-code-switching.streamlit.app/
 
-1. Edit `APP_URL` in the workflow to your real URL, **or**
-2. Add a GitHub Actions variable `STREAMLIT_APP_URL` (recommended).
-3. Push to GitHub and ensure Actions are enabled.
-4. Run **Actions → Streamlit keep-alive → Run workflow** once to test.
+### Setup
+
+1. `APP_URL` is already set in the workflow to the live app URL.
+2. Push to GitHub and ensure Actions are enabled.
+3. Run **Actions → Streamlit keep-alive → Run workflow** once to test.
 
 ### Important limits
 
-- Keep-alive helps an **already awake** app stay active.
-- It does **not** reliably wake a sleeping app.
-- If the app is asleep, open the URL in a browser and click
-  **“Yes, get this app back up!”**
-- Do not use bare `curl -L` without a cookie jar (Streamlit can redirect-loop).
+- Browser keep-alive is required; plain HTTP often only hits the static HTML shell.
+- GitHub cron can start late when the Actions queue is busy — 6h spacing leaves margin under ~12h sleep.
+- If wake still fails, open the URL in a browser once manually.
 
 ## What not to do
 
 - No paid APIs, secrets, or GPU services for the core path
 - No scraping at runtime
-- Do not claim a live demo URL until you open it and verify Analyzer + Datasets work
 
 ## Verification checklist
 
@@ -78,7 +80,6 @@ It pings the app every **8 hours (UTC)** so an already-awake app is less likely 
 - [ ] Datasets page lists / creates a dataset
 - [ ] About Project and Research Center render
 - [ ] Settings shows local/free configuration
-- [ ] Public URL recorded in README only after manual verification
-- [ ] Keep-alive workflow URL updated (optional)
+- [ ] Keep-alive workflow runs successfully on GitHub Actions
 
-**Deployment status for this workspace:** Not verified (no public URL claimed yet).
+**Live demo:** https://urdu-english-code-switching.streamlit.app/

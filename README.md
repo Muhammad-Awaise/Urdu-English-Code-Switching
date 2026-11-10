@@ -39,13 +39,13 @@ Full steps, paths, and checklist: [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md).
 ### Keep-alive (optional)
 
 Free Streamlit apps can sleep after ~12h without traffic. This repo includes
-`.github/workflows/streamlit-keepalive.yml` (ping every 8 hours UTC).
+`.github/workflows/streamlit-keepalive.yml` + `scripts/streamlit_keepalive.py`
+(Playwright browser visit every 6 hours UTC — same pattern as the sibling
+Bilingual Sentiment project). URL is set to the live app below.
 
-After deploy, set your real app URL in that workflow (`APP_URL`) **or** as the
-GitHub Actions variable `STREAMLIT_APP_URL`. Details and limits are in
-[`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md#keep-alive-optional).
+Details: [`docs/DEPLOYMENT.md`](docs/DEPLOYMENT.md#keep-alive-optional).
 
-**Live demo:** not verified in this workspace yet — do not claim a public URL until you open it and check predictions/UI.
+**Live demo:** https://urdu-english-code-switching.streamlit.app/
 
 ## Optional: FastAPI + React UI
 
