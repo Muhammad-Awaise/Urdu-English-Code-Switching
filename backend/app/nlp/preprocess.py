@@ -18,7 +18,6 @@ DEFAULT_ROMAN_URDU_NORM = {
     "kia": "kya",
     "mujy": "mujhe",
     "mujhay": "mujhe",
-    "mujhay": "mujhe",
     "apko": "aapko",
     "ap": "aap",
     "kriye": "kariye",

@@ -1,12 +1,9 @@
 from __future__ import annotations
 
-import csv
 import json
 import random
 from collections import Counter
-from io import BytesIO, StringIO
-from pathlib import Path
-from typing import Any
+from io import BytesIO
 
 import pandas as pd
 from sqlalchemy.orm import Session
@@ -80,7 +77,7 @@ def compute_stats(db: Session, version_id: int) -> dict:
             continue
         for lab in labels:
             token_labels[lab] += 1
-        lang = {l for l in labels if l in {"URDU_ROMAN", "ENGLISH"}}
+        lang = {lab for lab in labels if lab in {"URDU_ROMAN", "ENGLISH"}}
         if "URDU_ROMAN" in lang and "ENGLISH" in lang:
             sentence_types["mixed"] += 1
         elif lang == {"ENGLISH"}:
@@ -584,7 +581,6 @@ def validate_dataset(db: Session, version_id: int) -> dict:
 
 def clean_dataset(db: Session, version_id: int, *, remove_empty: bool = True, remove_duplicates: bool = False) -> dict:
     """Generate cleaning actions; only delete when explicitly requested. Never silent."""
-    report = validate_dataset(db, version_id)
     actions = []
     records = db.query(DatasetRecord).filter(DatasetRecord.version_id == version_id).all()
     if remove_empty:

@@ -14,7 +14,6 @@ from app.models.orm import (
     DatasetRecord,
     ModelArtifact,
     ModelEvaluation,
-    TokenAnnotation,
     TrainingExperiment,
     TrainingJob,
 )

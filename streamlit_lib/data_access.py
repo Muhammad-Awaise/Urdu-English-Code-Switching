@@ -2,7 +2,6 @@
 
 from __future__ import annotations
 
-from typing import Any
 
 from streamlit_lib.bootstrap import get_db_session
 

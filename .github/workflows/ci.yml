@@ -1,0 +1,33 @@
+# Continuous integration — same role as sibling Bilingual-Sentiment-Analysis-Tool/ci.yml
+name: CI
+
+on:
+  push:
+    branches: [main, master]
+  pull_request:
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+          cache: pip
+
+      - name: Install dependencies
+        run: |
+          python -m pip install --upgrade pip
+          pip install -r requirements.txt
+          pip install -r backend/requirements.txt
+
+      - name: Ruff
+        run: ruff check backend/app streamlit_app.py streamlit_lib pages scripts/streamlit_keepalive.py
+
+      - name: Pytest
+        working-directory: backend
+        run: pytest -q

@@ -1,7 +1,6 @@
 from __future__ import annotations
 
 from datetime import datetime
-from pathlib import Path
 
 from docx import Document
 from reportlab.lib.pagesizes import letter
@@ -17,7 +16,6 @@ from app.models.orm import (
     ResearchNote,
     ResearchPaper,
     TrainingExperiment,
-    TrainingJob,
 )
 
 
@@ -190,7 +188,7 @@ def _split_block_lines(title: str, block: dict) -> list[str]:
         if isinstance(matrix, list) and labels:
             lines.append("")
             lines.append("Confusion matrix (rows = true, cols = predicted):")
-            header = "| True \\ Pred | " + " | ".join(str(l) for l in labels) + " |"
+            header = "| True \\ Pred | " + " | ".join(str(lab) for lab in labels) + " |"
             sep = "|---|" + "|".join(["---:"] * len(labels)) + "|"
             lines.append(header)
             lines.append(sep)

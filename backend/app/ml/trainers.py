@@ -1,6 +1,5 @@
 from __future__ import annotations
 
-import json
 import time
 from dataclasses import asdict, dataclass
 from datetime import datetime
@@ -9,7 +8,6 @@ from typing import Any
 from uuid import uuid4
 
 import joblib
-import numpy as np
 from sklearn.feature_extraction.text import TfidfVectorizer
 from sklearn.linear_model import LogisticRegression
 from sklearn.metrics import (
